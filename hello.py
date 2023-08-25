@@ -1,299 +1,114 @@
+# %% https://www.youtube.com/watch?v=5lpk1b3SJP0&t=449s
 
-#2. 
- #Control flow
-    
+import json
 
-    #for loop : lists are iterable
-    #while loop: doesn't iterate over items, but keeps looping until condition is false
-    a = 0
-while a < 5:
-     print(a)
-     a= a+1
+jsonString = '{"a": "apple", "b": "bear", "c": "cat"}'
+json.loads(jsonString)
+# %%
+#4 basic data structures
 
+    #list structures
 
+# myList = [1,2,3,4,5]
+# [2*item for item in myList]
 
-
-class Dog:
-    def __init__(self): #initizailtion function, self is specific instance of dog class
-       self.name = 'Rover'
-       self.legs = 4
-
-    def speak(self):
-        print(self.name + 'says: BaRK')
-
-    myDog = Dog('Rover')
-    dog2= Dog('fluffy')
- 
-
-class Dog:
-    def __init__(self, name):
-        self.name = name
-        self.age = 4
-    
-    def speak(self):
-        print(self.name + 'Bark')
-    
-    myDog.speak()
-
-class Dog:
-    def __init__(self, name):
-        self.name = name
-        self.age = 4
-
-myDog = Dog('kazi')
-     
-
-#functions
-
-def multiplyByThree(val):
-    return 3 * val
-    
-multiplyByThree(4)
+# myList = list(range(100))
+# filteredList = [item for item in myList if item % 10 == 0]
 
 
-a = [1,2,3,4]
+# animalList = [('a', 'aardvark'), ('b', 'bear')]
+# print(animalList)
 
-def appenFour(myList):
-    myList.append(4)
+# animals = {key: value for key, value in animalList}
+# print(animals)
 
-appendFour(a)
+#%%
+import pandas as pd
 
-#Classes and Objects
-    Class Dog:
-        def __init__(self, name):
-            self.name = name
-            self.legs = 4
-            
-        def speak(self):
-        print(self.name + ' says: Bark!')
-    
-        
-my_Dog = Dog('Kazi')
-my_Dog.speak()
+#dataDF = pd.read_excel(rf'Z:\files\srcfiles\kafka\data_extract_engine\telco_churn.csv')
 
+df = pd.read_csv(rf'Z:\files\srcfiles\kafka\data_extract_engine\telco_churn.csv')
 
+data[tuple(x) for x in df.values]
+# %%
 
-#Solution: factorial
-def factorial(num):
-    if type(num) is not int:
-        return None
-    if num < 0:
-        return None
-    if num == 0:
-        return 1
-    
-    i = 0
-    f = 1
-    while i < num:
-        i = i+1
-        f=f*i
+#Get User Input
+def performOperation():
+    num1 = int(input("num1: "))
+    num2 = int(input("num2: "))
 
-return f
+    sum = num1 + num2
 
-def factorial(num):
-    if type(num) is not int:
-        return None
-
-
-    i = 0
-    f = 1
-
-
-    
+    print("the sum is:")
+    print(sum)
    
 
-
-
-#3 
-myList = [1,2]
-
-f'My number is: {5}'
-
-
-#3 Challenge: Sense of direction
-
-
-
-def __init__(self, canvas):
-    self.direction = [0,1]
-    
-
-
-def setDegrees(self, degrees):
-    radians = (degrees/180) * math.pi
-    self.direction = [math.sin(radians), -math.cos(radians)]
-    
-    def up(self)
-        self.direction = [0,-1]
-        self.forward()
-     
-     
-scribe = TerminalScribe(canvas)
-
         
-        # Other types of numbers
+performOperation()
+
+# %%
+#3 challenge converting hex to decimal
+hexNumbers = {
+    '0': 0, '1': 1,
+    'A': 10, 'B': 11
+}
+
+def hexToDec(hexNum):
+    for char in hexNum:
+        if char not in hexNumbers:
+            return None
         
-        
-    def drawSquare(self, size):
-        i=0
-        while i < size:
-            self.right()
-            i = i+1
-            
-            
-#Create function that multiplies number by 3
-    def multiple3(val)
-    return self * 3
+
+    if len(hexNum) == 3:
+        return hexNumbers[hexNum[0]] * 256 + hexNumbers[hexNum[1]] * 16 + hexNumbers[hexNum[2]]
     
 
 
+# %% 
+# Solution 2 Challenge.
 
-#Chapter 4: Basic data structures
-#Challenge: Write a function "encodeString" that will encode a string like 'AAAAABBBBAAA' 
-    #as a list ot tuples: [{()'A', 5), ('B', 4)}]
-def encodeString(stringVal):
-  encodedList = []
-  prevChar = stringVal[0]
-  count = 0
-
-  for char in stringVal:
-       if prevChar != char:
-            encodedList.append((prevChar, count))
-            count = 0
-        prevChar = char
-       count = count + 1
-
-    encodedList.append((prevChar, count))
-  return encodedList
-
-       
-
-def decodeString(encodedList):
-  pass
-
-
-def encodeString(stringVal):
-  
-  pass
-
-def decodeString(encodedList):
-  pass
-
-
-  ##solution:
-#we want to loop through the stringVal that is being passes into stringVal
-#along the way we want to keep track of three things
-#encoded list that ultimately gets returned from the function
-#keep track of previous character, and when character has changed, 
-#       and added to inside the loop
-# if the current character doesnt match the prev char, we know we need to stop, 
-    #and add something to the encoded list
-#lastly, we have the count. This starts at 0 and keeps track of how many characters 
-    #we've gone through without seeing any change
-#as we loop through, if the prev char is not equal to current char, we've seen a change
-
-  def encodeString(stringVal): 
-       encodedList = [] 
-       prevChar = stringVal[0] 
-       count = 0
-#we want to loop through the stringVal that is being passes into stringVal
-for char in stringVal:
-  if prevChar != char:
-    encodedList.append((prevChar, count))
-    count = 0
-prevChar = char
-count = count + 1
-
-
-encodedList.append((prevChar, count))
-return encodedList
-  
-def decodeString(encodedList):
-  decodedStr=''
-  for item in encodedList:
-       decodedStr = decodedStr + item[0] * item[1]
-    return decodedStr
-
-
-#we want to loop through the stringVal that is being passes into encodeString
-#along the way we want to keep track of three things
- def encodeString(stringVal): 
-       encodedList = [] #ultimately gets returned from the function, and gets added to in loop
-       prevChar = stringVal[0] #keep track of previous character, and when character has changed, 
-#       and added to inside the loop
-       count = 0 #lastly, we have the count. This starts at 0 and keeps track of how many characters 
-    #we've gone through without seeing any change
-
-#we want to loop through the stringVal that is being passes into stringVal
-#as we loop through, if the prev char is not equal to current char, we've seen a change
-for char in stringVal:
-  if prevChar != char:
-    encodedList.append((prevChar, count)) #add to list and set count back to 0
-    count = 0 #set the count back to 0, then keep looping through
-prevChar = char
-count = count + 1
-
-
-encodedList.append((prevChar, count))
-return encodedList
-  
-def decodeString(encodedList):
-  decodedStr=''
-  for item in encodedList:
-       decodedStr = decodedStr + item[0] * item[1]
-    return decodedStr
+def hexToDec(hexNum):
+    for char in hexNum:
+        if char not in hexNumbers:
+            return None
     
+    exponent = 0
+    decimalValue = 0
+    for char in hexNum[::-1]:
+        decimalValue = decimalValue + hexNumbers[char] * (16**exponent)
+        exponent = exponent + 1
 
-    
-#Chapter 5: Control Flow
-  
-  #if and Else
-  for n in range(1,101):
-    if n % 15 ==0:
-        print('FizzBuzz')
-    else  
-  
-  #while loop
-  
-  wait_until = datetime.now().second + 2
-  
-  while datetime.now().second != wait_until:
-    print('still waiting')
-  print(f'We are at {wait_until} seconds!')
-  
-    ##continue
+    return decimalValue
 
-  
-   #For Loops
+hexToDec('3C0')
 
-for item in myList:
-    print(item)
-    
-    
-#Solution Finding Primes Faster
+# %%
 
-def allPrimesUpTo(num):
-    pass
+#9 multithreading
+import threading
+import time
 
-def allprimesUpTo(num):
-    primes = [2]
-    for number in range(3, num):
-        sqrtNum = number**0.5
-        for factor in primes:
-            if number % factor == 0:
-                #not prime
-                break
-            if factor > sqrtNum:
-                #it's prime!
-                primes.append(number)
-                break
-            return primes
+def longSquare(num):
+    time.sleep(1)
+    return num**2
+
+[longSquare(n) for n in range(0,5)]
 
 
 
 
 
-###6 Anatomy of Functions
+
+
+
+
+
+
+
+
+
+
+
 
 def performOperation(num1, num2, operation):
     if operation == 'sum':
@@ -303,85 +118,160 @@ def performOperation(num1, num2, operation):
         
 performOperation(2,3,'sum')
 
-def performOperatino(num1, num2, operation='sum')
-
-def performOperation(*args)
-    print(args)
-    
-performOperation(1,2,3)
 
 
-#######################7 Classes and Objects
 
+
+# %% #7 static and instance methods
+class WordSet:
+    def __init__(self):
+        self.words = set()
+
+    def addText(self, text):
+        text = WordSet.cleanText(text)
+        for word in text.split():
+            self.words.add(word)
+
+    def cleanText(self, text):
+        text = text.replace('!', '').replace('.', '').replace('\'', '')
+        return text.lower()
+
+wordSet = WordSet()
+wordSet.addText('Hi, I\'m Ryan! Here is a sentence I want to add')
+wordSet.addText('Here is another sentence I want to add.')
+
+print(wordSet.words)
+
+
+
+# %% Anatomy of a class
+
+#instance attributes
 class Dog:
-    legs = 4
     def __init__(self, name):
-    self.name = name
-    #self.legs = 4
-    
+        self.name = name
+        self.legs = 4
+
     def speak(self):
-        print(self.name + ' says: Bark')
+        print(self.name + ' says: Bark!')
 
 myDog = Dog('Rover')
 print(myDog.name)
 print(myDog.legs)
+# %%
+#static attributes:unchanging with each instance of the class (make legs an attribute of the class itself)
 
+class Dog:
 
-#Inheritance
-
-    ## Solution: extending the messenger
-
-
- #######################8 Errors and exceptions
-
-
- 
- #########10 working with files
-    # Opening, reading, writing files
-        #Opening Files
-        f = open('10_01_file.txt', 'r')
-        for line in f.readlines():
-            print(line)
+    _legs = 4
+    def __init__(self, name):
+        self.name = name
     
-f = open('10_01_file.txt', 'r')
-  
-f.readline()
+    def getLegs():
+        return Dog._legs
 
-    #Writing to files
-    f = open('10_01_output.txt', 'w')
-    print(f)
+    def speak(self):
+        print(self.name + ' says: Bark!')
 
-        f.write('Lines')
-        f.write('Line 2')
+myDog = Dog('Rover')
+print(myDog.name)
+print(myDog.getLegs())
 
-        f.close() #required for it to write
+# %% Inheritance
 
-    #Appending
-    f = open('10_01_output.txt', 'a')
-f.write('Line 3\n')
-f.write('Line 4\n')
-f.close()
-
-    #close function with the with statement
-    with open('10_01_output.txt', 'a') as f:
-        f.write('some stuff\n')
-        f.write('some other stuff\n')
-
-
-with open('10?02_us.csv', 'r') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        print(row)
-
-
-
-
-
-
-
-    #challenge: ASCII art Compression
+class Dog:
+    _legs = 4
+    def __init__(self, name):
+        self.name = name
     
+    def speak(self):
+        print(self.name + ' says: Bark!')
     
+    def getLegs(Dog):
+        def speak(self):
+
+class Chihuahua(Dog):
+    def speak(self):
+        print(f'{self.name} says: yap yap yap')
+
+    def wagTail(self):
+        print('Vigorous wagging')
+
+myDog = Dog('Rover')
+myDog.speak()
+
+# %% Extending built-in classes using super()
+myList = list()
+
+class UniqueList(list):
+
+    def __init__(self):
+        super().__init__()
+        self.someProperty = 'Unique List!'
+
+
+    def append(self, item):
+        if item in self:
+            return
+        super().append(item) #use super()
+
+uniqueList = UniqueList()
+uniqueList.append(1)
+uniqueList.append(1)
+
+print(uniqueList)
+
+# %%
+
+#7 challenge: extending the messenger
+## Extending the Messenger
+
+# Create a class "SaveMessages" that extends the Messenger class that does the following things:
+
+# - Add any messages it receives to a list, along with the time the message was received
+# - Use the provided "getCurrentTime" function so that the received message time is a string
+# - Contains a method called "printMessages" that prints all collected messages when it's called.
+
+# You might also consider clearing the message list when "printMessages" is called. 
+
+
+from datetime import datetime
+
+def getCurrentTime():
+    return datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+
+
+class Messenger:
+    def __init__(self, listeners=[]):
+        self.listeners = listeners
     
- #########11 Packaging Python
-    #command line arguments
+    def send(self, message):
+        for listener in self.listeners:
+            listener.receive(message)
+
+    def receive(self, message):
+        # Must be implemented by extending classes
+        pass
+
+
+class SaveMessages(Messenger):
+    # Your code here!
+    pass
+
+
+# Run this cell after you've written your solution
+listener = SaveMessages()
+
+sender = Messenger([listener])
+
+sender.send('Hello, there! This is the first message')
+
+
+# Run this cell after you've written your solution
+sender.send('Oh hi! This is the second message!')
+
+
+###Solution###
+
+
+
